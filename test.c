@@ -1,29 +1,24 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
-#include<stdlib.h>
-#include<time.h>
-//随机生产1-100的随机数，然后猜
 int main()
 {
+	//求水仙花数,一个三位数，各位数字立方和等于该数本身
+	int a = 0;
 	int i = 0;
-	//拿时间戳设置随机数的生成起点
-	srand((unsigned int)time(NULL));
-	while(1)
+	int j = 0;
+	int k = 0;
+	printf("请输入一个数：");
+	scanf("%d", &a);
+	i = a / 100;
+	j = a / 10 - i * 10;
+	k = a % 10;
+	if (a == i * i * i + j * j * j + k * k * k)
 	{
-		//生成1-100的随机数
-		int r = rand() % 100 + 1;
-		printf("请输入您要猜的数字：");
-		scanf("%d", &i);
-		printf("随机数为%d\n", r);
-		if (i == r)
-		{
-			printf("正确\n");
-			break;
-		}
-		else
-		{
-			printf("错误\n");
-		}
+		printf("该数是水仙花数\n");
+	}
+	else
+	{
+		printf("该数不是水仙花数\n");
 	}
 	return 0;
 }
